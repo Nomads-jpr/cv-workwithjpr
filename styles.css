@@ -386,6 +386,14 @@ body {
   height: 14px;
 }
 
+.portfolio-desc {
+  font-size: 10px;
+  line-height: 1.45;
+  color: var(--text-light);
+  padding: 4px 2px 0 2px;
+  margin-top: -2px;
+}
+
 /* Tech Stack Grid */
 .tech-grid {
   display: grid;
