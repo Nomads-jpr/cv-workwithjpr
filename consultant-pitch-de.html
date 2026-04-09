@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing-Beratung - Jan Rojek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a365d;
+      --primary-light: #2c5282;
+      --accent: #3182ce;
+      --accent-light: #63b3ed;
+      --text: #1a202c;
+      --text-light: #718096;
+      --bg: #ffffff;
+      --bg-light: #f7fafc;
+      --border: #e2e8f0;
+      --success: #38a169;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg-light);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: white;
+      padding: 60px 50px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Content Section */
+    .content {
+      padding: 50px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    /* Problem/Solution Grid */
+    .problem-solution {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .problem-box, .solution-box {
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .problem-box {
+      background: #fff5f5;
+      border-left: 4px solid #e53e3e;
+    }
+
+    .solution-box {
+      background: #f0fff4;
+      border-left: 4px solid var(--success);
+    }
+
+    .box-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .problem-box .box-title {
+      color: #c53030;
+    }
+
+    .solution-box .box-title {
+      color: #276749;
+    }
+
+    .box-list {
+      list-style: none;
+      font-size: 14px;
+    }
+
+    .box-list li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .box-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .problem-box .box-list li::before {
+      background: #e53e3e;
+    }
+
+    .solution-box .box-list li::before {
+      background: var(--success);
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 20px;
+      background: var(--bg-light);
+      border-radius: 12px;
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 5px;
+    }
+
+    /* Services */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .service {
+      padding: 25px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .service:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(49, 130, 206, 0.15);
+    }
+
+    .service.featured {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(49, 130, 206, 0.05) 0%, rgba(99, 179, 237, 0.05) 100%);
+      position: relative;
+    }
+
+    .service.featured::before {
+      content: 'EMPFOHLEN';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .service-icon {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .service-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .service-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .service-price span {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-light);
+    }
+
+    /* Profile Section */
+    .profile {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      padding: 30px;
+      background: var(--bg-light);
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+
+    .profile-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary-light);
+    }
+
+    .profile-info h3 {
+      font-size: 18px;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .profile-title {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .profile-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .highlight-tag {
+      background: var(--primary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: white;
+      padding: 40px 50px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .cta-button.primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-info {
+      margin-top: 25px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .contact-info a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+      }
+      .container {
+        box-shadow: none;
+        max-width: 100%;
+      }
+      .hero {
+        padding: 40px 30px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .content {
+        padding: 30px;
+      }
+      .cta {
+        padding: 30px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .service:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-badge">Marketing-Beratung</div>
+      <h1>Ihr Partner für digitales Praxis-Marketing</h1>
+      <p>Datengetriebene Marketing-Strategien, die Patienten gewinnen und Ihre Praxis nachhaltig wachsen lassen.</p>
+    </header>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Problem/Solution -->
+      <section class="section">
+        <div class="problem-solution">
+          <div class="problem-box">
+            <div class="box-title">
+              <span>Ihre Herausforderung</span>
+            </div>
+            <ul class="box-list">
+              <li>Patienten finden Ihre Praxis nicht online</li>
+              <li>Konkurrenz dominiert Google-Suche</li>
+              <li>Social Media bringt keine Ergebnisse</li>
+              <li>Keine Zeit für Marketing-Strategie</li>
+              <li>Werbebudget verpufft ohne ROI</li>
+            </ul>
+          </div>
+          <div class="solution-box">
+            <div class="box-title">
+              <span>Meine Lösung</span>
+            </div>
+            <ul class="box-list">
+              <li>Datengetriebene Kampagnen mit klarem ROI</li>
+              <li>Lokale SEO & Google Ads Optimierung</li>
+              <li>Content-Strategie die Vertrauen schafft</li>
+              <li>Automatisierte Lead-Generierung</li>
+              <li>Monatliches Reporting & Optimierung</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="section">
+        <h3 class="section-title">Nachweisliche Erfolge</h3>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number">$15M+</div>
+            <div class="stat-label">Generierter Umsatz</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">1.000+</div>
+            <div class="stat-label">Kampagnen</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">7+</div>
+            <div class="stat-label">Jahre Erfahrung</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">12</div>
+            <div class="stat-label">Team aufgebaut</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section class="section">
+        <h3 class="section-title">Zusammenarbeit</h3>
+        <div class="services">
+          <div class="service">
+            <div class="service-icon">📋</div>
+            <div class="service-title">Strategie</div>
+            <div class="service-desc">Marketing-Audit, Wettbewerbsanalyse, 90-Tage-Aktionsplan</div>
+            <div class="service-price">ab 1.500 <span>einmalig</span></div>
+          </div>
+          <div class="service featured">
+            <div class="service-icon">🚀</div>
+            <div class="service-title">Umsetzung</div>
+            <div class="service-desc">Strategie + laufende Kampagnen, Content, Reporting</div>
+            <div class="service-price">2.500 <span>/Monat</span></div>
+          </div>
+          <div class="service">
+            <div class="service-icon">💼</div>
+            <div class="service-title">Full-Service</div>
+            <div class="service-desc">Komplettes Marketing-Management als externer CMO</div>
+            <div class="service-price">ab 4.000 <span>/Monat</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Profile -->
+      <section class="section">
+        <h3 class="section-title">Über mich</h3>
+        <div class="profile">
+          <img src="photo.jpg" alt="Jan Rojek" class="profile-photo">
+          <div class="profile-info">
+            <h3>Jan Rojek</h3>
+            <div class="profile-title">Marketing-Berater | 7+ Jahre Agentur-Erfahrung | Berlin</div>
+            <div class="profile-highlights">
+              <span class="highlight-tag">Meta Ads</span>
+              <span class="highlight-tag">Google Ads</span>
+              <span class="highlight-tag">SEO</span>
+              <span class="highlight-tag">AI/Automation</span>
+              <span class="highlight-tag">BigQuery</span>
+              <span class="highlight-tag">n8n</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CTA -->
+    <footer class="cta">
+      <h2>Lassen Sie uns sprechen</h2>
+      <p>Kostenloses 30-Minuten Erstgespräch zur Analyse Ihrer Marketing-Situation</p>
+      <div class="cta-buttons">
+        <a href="mailto:jan@workwithjpr.com" class="cta-button primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          E-Mail schreiben
+        </a>
+        <a href="tel:+4917631504123" class="cta-button secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Anrufen
+        </a>
+      </div>
+      <div class="contact-info">
+        <a href="https://www.linkedin.com/in/workwithjpr/">LinkedIn</a> |
+        <a href="mailto:jan@workwithjpr.com">jan@workwithjpr.com</a> |
+        +49 176 31504123
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

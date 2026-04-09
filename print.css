@@ -1,0 +1,271 @@
+/* Print Stylesheet for CV - Jan Rojek */
+/* Optimized for A4 PDF export */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Hide download button and other non-print elements */
+  .no-print,
+  .download-btn {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .cv-container {
+    max-width: 100%;
+    margin: 0;
+    box-shadow: none;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background: #f7fafc !important;
+    padding: 25px 18px;
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .photo {
+    width: 120px;
+    height: 120px;
+    border: 3px solid #4a5568;
+  }
+
+  .name {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .title {
+    font-size: 10px;
+  }
+
+  .section-title {
+    font-size: 9px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+
+  .contact-item {
+    font-size: 10px;
+    margin-bottom: 6px;
+    gap: 6px;
+  }
+
+  .contact-item svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .skill-category {
+    margin-bottom: 10px;
+  }
+
+  .skill-category-title {
+    font-size: 9px;
+    margin-bottom: 5px;
+  }
+
+  .skill-tags {
+    gap: 4px;
+  }
+
+  .skill-tag {
+    padding: 2px 6px;
+    font-size: 8px;
+    border-radius: 8px;
+  }
+
+  .language-item {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .level-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .portfolio-link {
+    padding: 5px 10px;
+    font-size: 9px;
+    margin-bottom: 5px;
+  }
+
+  .portfolio-link svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Main Content */
+  .main-content {
+    padding: 25px 25px;
+  }
+
+  .summary {
+    padding: 15px;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%) !important;
+    color: white !important;
+  }
+
+  .summary strong {
+    color: #63b3ed !important;
+  }
+
+  .main-section {
+    margin-bottom: 18px;
+  }
+
+  .main-section-title {
+    font-size: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    gap: 6px;
+  }
+
+  .main-section-title svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .experience-item {
+    margin-bottom: 15px;
+    padding-left: 15px;
+  }
+
+  .experience-item::before {
+    width: 6px;
+    height: 6px;
+    top: 6px;
+  }
+
+  .experience-title {
+    font-size: 12px;
+  }
+
+  .experience-company {
+    font-size: 10px;
+  }
+
+  .experience-date {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .experience-highlights li {
+    font-size: 10px;
+    margin-bottom: 3px;
+    padding-left: 12px;
+  }
+
+  .experience-highlights li::before {
+    font-size: 10px;
+  }
+
+  .client-tags {
+    gap: 4px;
+    margin-top: 6px;
+  }
+
+  .client-tag {
+    padding: 2px 6px;
+    font-size: 8px;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .tech-category {
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .tech-category-title {
+    font-size: 9px;
+    margin-bottom: 5px;
+  }
+
+  .tech-list {
+    font-size: 9px;
+    line-height: 1.4;
+  }
+
+  .education-item {
+    margin-bottom: 12px;
+    padding-left: 15px;
+  }
+
+  .education-item::before {
+    width: 6px;
+    height: 6px;
+    top: 6px;
+  }
+
+  .education-degree {
+    font-size: 11px;
+  }
+
+  .education-school {
+    font-size: 10px;
+  }
+
+  .education-date {
+    font-size: 9px;
+  }
+
+  /* Hide footer for print */
+  footer {
+    display: none;
+  }
+
+  /* Avoid page breaks inside elements */
+  .experience-item,
+  .education-item,
+  .tech-category,
+  .summary {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Ensure links are visible */
+  a {
+    text-decoration: none;
+  }
+
+  /* Remove link hover effects */
+  .portfolio-link:hover {
+    background: #f7fafc !important;
+    color: #3182ce !important;
+    border-color: #e2e8f0 !important;
+  }
+}
+
+/* High-quality print */
+@media print and (min-resolution: 300dpi) {
+  .photo {
+    image-rendering: high-quality;
+  }
+}
