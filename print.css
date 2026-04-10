@@ -34,9 +34,10 @@
   }
 
   body {
-    background: white !important;
-    font-size: 9px;
+    background: linear-gradient(90deg, #f4f4f5 210px, white 210px) !important;
+    font-size: 10px;
     line-height: 1.35;
+    height: 100%;
   }
 
   .cv-container {
@@ -45,14 +46,14 @@
     box-shadow: none;
     display: grid;
     grid-template-columns: 210px 1fr;
-    min-height: auto;
+    min-height: 100vh;
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
   /* Sidebar */
   .sidebar {
-    background: #f4f4f5 !important;
+    background: transparent !important;
     padding: 12px 10px;
     border-right: 1px solid #e2e8f0;
   }
