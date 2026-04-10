@@ -35,7 +35,7 @@
 
   body {
     background: white !important;
-    font-size: 10px;
+    font-size: 9px;
     line-height: 1.35;
   }
 
@@ -46,12 +46,14 @@
     display: grid;
     grid-template-columns: 210px 1fr;
     min-height: auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   /* Sidebar */
   .sidebar {
-    background: #f7fafc !important;
-    padding: 15px 12px;
+    background: #f4f4f5 !important;
+    padding: 12px 10px;
     border-right: 1px solid #e2e8f0;
   }
 
@@ -60,8 +62,8 @@
   }
 
   .photo {
-    width: 95px;
-    height: 95px;
+    width: 85px;
+    height: 85px;
     border: 2px solid #27272a;
   }
 
@@ -147,7 +149,7 @@
 
   /* Main Content */
   .main-content {
-    padding: 15px 18px;
+    padding: 12px 15px;
   }
 
   .summary {
@@ -277,16 +279,9 @@
     font-size: 9px;
   }
 
-  /* Footer with date — keep visible in print */
+  /* Hide Footer entirely in print to prevent it from dragging the page height down */
   footer {
-    display: block !important;
-    text-align: center;
-    padding: 6px 0 0 0 !important;
-    color: #718096 !important;
-    font-size: 8px !important;
-    font-style: italic;
-    border-top: 1px solid #e2e8f0;
-    margin-top: 8px;
+    display: none !important;
   }
 
   /* Avoid page breaks inside elements */
