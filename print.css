@@ -212,6 +212,7 @@
   }
 
   .experience-highlights li {
+    position: relative;
     font-size: 9px;
     margin-bottom: 1px;
     padding-left: 10px;
@@ -219,6 +220,9 @@
   }
 
   .experience-highlights li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
     font-size: 10px;
   }
 
